@@ -30,13 +30,13 @@ $("#order-form").on('submit', (evt) => {
 
   const formData = {
     melon_type: $('#melon-type-field').val(),
-    qty: $('qty-field').val()
+    qty: $('#qty-field').val()
   };
 
   $.post('/order-melons', formData, (response) => {
     const orderStatus = $('#order-status');
 
-    if (results.code === 'ERROR') {
+    if (response.code === 'ERROR') {
       orderStatus.css('color','red');
     } else {
         orderStatus.css('color', '');
